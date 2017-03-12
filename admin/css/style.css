@@ -1,0 +1,32 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+body, button, input, textarea {
+	font-family: 'proxima-nova','Helvetica Neue',Arial,Helvetica,sans-serif;
+}
+
+body{
+	background: rgb(251,251,251); 
+}
+
+
+form {
+    margin:2% 0% 1% 0%;
+}
+
+.new {
+	height: 30px;
+	padding-left:2%;
+	font-size: 1.4em;
+	border: none;
+	border-bottom: 1px solid black;
+    border-radius:0;
+	font-family: Verdana;
+    box-shadow:none !important;
+}
+
+.transparent-input {
+    background-color:transparent !important;
+    border:none !important;
+    box-shadow:none !important;
+}
