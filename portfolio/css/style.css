@@ -1,13 +1,118 @@
-﻿.navbar {
+﻿@font-face {
+    font-family: day;
+    src: url(../fonts/Day.ttf);
+}
+
+@font-face {
+    font-family: handwriting;
+    src: url(../fonts/Handwriting.ttf);
+}
+@font-face {
+    font-family: crayon;
+    src: url(../fonts/Crayon.ttf);
+}
+@font-face {
+    font-family: angeltoes;
+    src: url(../fonts/Angeltoes.ttf);
+}
+
+body {
+	font-family:angeltoes, day;
+}
+
+
+/* notes */
+.note {
+	font-family : handwriting;
+	width:40%;
+	min-width:200px;
+	font-size: 21px;
+}
+.note-important {
+	font-family : crayon;
+}
+.note:before {
+	content:"";
+	width: 50px;
+	height: 50px;
+	position: absolute;
+}
+.note-bottom {
+	position:relative;
+	padding:40px 0 0 40px;
+}
+.note-bottom:before {
+	background: url("../img/arrow2.png") no-repeat top center;
+	background-size: 50px;
+	transform: rotate(60deg);
+	left:0;
+	top:0;
+}
+.note-bottom-bottom {
+	margin-left:40%;
+}
+.note-bottom-right {
+	margin-left:60%;
+}
+.note-bottom-left {
+	margin-left:15%;
+}
+.note-top {
+	position:relative;
+	
+}
+.note-top:before {
+	position: absolute;
+	bottom:0;
+}
+.note-top-top {
+	margin-left:40%;
+}
+.note-top-right {
+	padding:0 10px 40px 0;
+	margin-left:60%;
+}
+.note-top-right:before {
+	background: url("../img/arrow2.png") no-repeat top center;
+	background-size: 50px;
+	transform: rotate(300deg);
+	right:0;
+}
+.note-top-left {
+	padding:0 0 40px 40px;
+	margin-left:5%;
+}
+.note-top-left:before {
+	background: url("../img/arrow.png") no-repeat top center;
+	background-size: 50px;
+	transform: rotate(100deg);
+	left:0;
+}
+
+/*navbar*/
+.navbar {
 	margin-bottom: 0;
     border-radius: 0;
 }
     
-footer {
-	background-color: #f2f2f2;
-	padding: 25px;
-	margin-top:5em;
+	
+/*profile*/
+.profile {
+	position:relative;
 }
+
+.profile img {
+	width:20%;
+	height:auto;
+	min-width:200px;
+	display:inline-block;
+}
+.profile h1 {
+	display:inline-block;
+}
+
+
+/*project list*/
 .project {
 	position:relative;
 	display:block;
@@ -16,20 +121,23 @@ footer {
 	border:1px solid #222;
 	border-radius:.2em;
 	transition:all 1s;
-	
+	margin-bottom:15px;
 }
+
 .project:hover {
 	background-color:#EEEEEE;
 	-webkit-box-shadow: 0px 0px 50px 10px rgba(0,0,0,0.4);
 	-moz-box-shadow: 0px 0px 50px 10px rgba(0,0,0,0.4);
 	box-shadow: 0px 0px 50px 10px rgba(0,0,0,0.4);
+
 }
+
 .project .date {
 	position:absolute;
 	top:0;
 	left:0;
 	margin-top:1.5em;
-	background-color:#222;
+	background-color:rgba(34,34,34,0.7);
 	color:rgb(250,250,250);
 	opacity:0.8;
 	padding:10px;
@@ -38,14 +146,7 @@ footer {
 .project .name {
 	margin-top:3em;
 }
-.project .description {
-	
-}
 
-.project:hover .description {
-	display:block;
-	
-}
 
 .project .btn-download {
 	position:absolute;
@@ -54,5 +155,23 @@ footer {
 	width:100%;
 	border-radius:0 0 .2em .2em;
 	border-color: transparent;
+}
+
+/*contact*/
+.contact-linkedin {
+	margin-bottom:20px;
+}
+.contact-email {
+	text-align:left;
+}
+.contact-email > * {
+	margin-bottom:20px;
+}
+
+/* footer*/
+footer {
+	background-color: #f2f2f2;
+	padding: 25px;
+	margin-top:5em;
 }
 	
