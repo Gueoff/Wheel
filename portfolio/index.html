@@ -51,11 +51,20 @@
 			<div class="row">
 				<div ng-repeat="project in projects" class="col-sm-3">
 					<div class="project">
-						<div class="date">{{project.date | date:'dd/MM/yyyy'}}</div>
+						<div class="date">
+							<span class="glyphicon glyphicon-calendar"></span>
+							{{project.date | date:'dd/MM/yyyy'}}
+						</div>
 						<h4 class="name">{{project.name}}</h4>
 						<div class="description">{{project.description}}</div>
-						<button type="button" class="btn btn-success btn-download" data-toggle="modal" data-target="#{{project.id}}" ng-show="project.downloads">Download</button>
-						<a href="{{project.website}}" target="_blank" type="button" class="btn btn-success btn-download" data-toggle="modal" ng-show="project.website">See</a>
+						<button type="button" class="btn btn-custom" data-toggle="modal" data-target="#{{project.id}}" ng-show="project.downloads">
+							<span class="glyphicon glyphicon-download"></span>
+							Download
+						</button>
+						<a href="{{project.website}}" target="_blank" type="button" class="btn btn-custom" data-toggle="modal" ng-show="project.website">
+							<span class="glyphicon glyphicon-eye-open"></span>
+							See
+						</a>
 						
 						<!-- Modal -->
 						<div id="{{project.id}}" class="modal fade" role="dialog" ng-show="project.downloads">
@@ -107,7 +116,7 @@
 					<form class="contact-email">
 						<input type="email" class="form-control" id="email" placeholder="Your email">
 						<textarea class="form-control" rows="5" id="comment" placeholder="Tape your comment here"></textarea>
-						<button type="submit" class="btn btn-success">Send</button>
+						<button type="submit" class="btn btn-custom">Send</button>
 					</form>
 				</div>
 			</div>
@@ -115,7 +124,7 @@
 		
 
 
-		<footer class="container-fluid text-center">
+		<footer class="footer container-fluid text-center">
 			<p>Footer Text</p>
 			
 		</footer>

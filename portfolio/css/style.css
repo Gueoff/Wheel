@@ -16,8 +16,9 @@
     src: url(../fonts/Angeltoes.ttf);
 }
 
-body {
-	font-family:angeltoes, day;
+body,
+.LI-badge-container {
+	font-family:angeltoes, day !important;
 }
 
 
@@ -88,11 +89,33 @@ body {
 	transform: rotate(100deg);
 	left:0;
 }
+@media screen and (max-width: 750px) {
+    .note-top-right,
+	.note-right-top,
+	.note-right-right,
+	.note-right-bottom,
+	.note-bottom-right {
+		margin-left:30%;
+	}
+}
 
 /*navbar*/
 .navbar {
 	margin-bottom: 0;
     border-radius: 0;
+	border: none;
+	border-bottom: dashed 2px rgb(20,20,20);
+	background-color: rgb(0, 191, 165);
+	position:fixed;
+	width: 100%;
+	z-index: 2;
+}
+.navbar a {
+	color:rgb(10,10,10) !important;
+	background-color: rgb(0, 191, 165) !important;
+}
+.navbar .active {
+	
 }
     
 	
@@ -142,24 +165,42 @@ body {
 	opacity:0.8;
 	padding:10px;
 }
+.project .date:before {
+	content:'';
+	
+	background:url(../img/glyphicons/glyphicons-46-calendar.png) no-repeat top center;
+	background-size: 50px;
+}
 
 .project .name {
 	margin-top:3em;
 }
 
 
-.project .btn-download {
+.project .btn-custom {
 	position:absolute;
 	bottom:0;
 	left:0;
 	width:100%;
 	border-radius:0 0 .2em .2em;
 	border-color: transparent;
+	background-color:rgb(0, 191, 165);
+	color: #fff;
+}
+
+.project .btn-custom:focus,
+.project .btn-custom:hover { 
+    background-color:rgb(0, 171, 145);
+	border-color: transparent;
+	color: #fff;
 }
 
 /*contact*/
 .contact-linkedin {
 	margin-bottom:20px;
+}
+.LI-logo img{
+	display:none;
 }
 .contact-email {
 	text-align:left;
@@ -169,9 +210,10 @@ body {
 }
 
 /* footer*/
-footer {
-	background-color: #f2f2f2;
-	padding: 25px;
+.footer {
+	border-top: dashed 2px rgb(20,20,20);
+	background-color: rgb(0, 191, 165);
+	padding: 20px;
 	margin-top:5em;
 }
 	
