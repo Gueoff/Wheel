@@ -20,7 +20,7 @@ var app = angular.module('app', []);
 		$scope.description = 'Here we are ! That\'s a list of all my personnal project you can access.';
 		
 		$scope.projects = [
-		{id:1, name:'Wheel', description:'Drink mobile game', date:'01/01/2017', plateform: 'mobile', downloads:[{name:'1.0.0', download:'http://xd.com'}, {name:'2.0.0', download:'http://lol.com'}]},
+		{id:1, name:'Wheel', description:'Wheel mobile game', date:'01/01/2017', plateform: 'mobile', downloads:[{name:'1.0.0', download:'wheel.apk'}]},
 		{id:2, name:'Margaux Noée', description:'Web site for a photograph', date:'01/01/2017', plateform:'web', website:'http://margauxnoee.com'}
 		];
 	}]);

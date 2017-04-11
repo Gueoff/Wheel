@@ -85,7 +85,7 @@
 											<tbody ng-repeat="download in project.downloads">
 												<tr>
 													<td>{{download.name}}</td>
-													<td>{{download.download}}</td>
+													<td><a target="_self" href={{download.download}} download={{download.download}}>{{download.download}}</a></td>
 												</tr>
 											</tbody>
 										 </table>
@@ -125,8 +125,7 @@
 
 
 		<footer class="footer container-fluid text-center">
-			<p>Footer Text</p>
-			
+
 		</footer>
 	</body>
 </html>
