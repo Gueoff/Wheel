@@ -11,7 +11,7 @@ var app = angular.module('app', []);
 		$scope.user = {
 			name: 'DESBROSSES',
 			firstname: 'Geoffrey',
-			birthdate : 12/09/1994,
+			birthdate : '12/09/1994',
 			description: 'Hey guys ! That\'s me, I\'m a french full stack developer. I\'m living in Nantes(44) since 2015, where I have made some stuff, I invite you to take a look of my website.'
 		};
 	}]);
@@ -20,8 +20,8 @@ var app = angular.module('app', []);
 		$scope.description = 'Here we are ! That\'s a list of all my personnal project you can access.';
 		
 		$scope.projects = [
-		{id:1, name:'Wheel', description:'Wheel mobile game', date:'01/01/2017', plateform: 'mobile', downloads:[{name:'1.0.0', download:'wheel.apk'}]},
-		{id:2, name:'Margaux Noée', description:'Web site for a photograph', date:'01/01/2017', plateform:'web', website:'http://margauxnoee.com'}
+		{id:1, name:'Wheel', description:'Wheel mobile game', date:'01/01/2017', plateform: 'mobile', downloads:[{name:'Android SDK6', download:'wheel-6.apk'}]},
+		{id:2, name:'Margaux Noée', description:'Web site for a photograph', date:'01/09/2015', plateform:'web', website:'http://margauxnoee.com'}
 		];
 	}]);
 	
