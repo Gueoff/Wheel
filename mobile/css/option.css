@@ -1,0 +1,73 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+form {
+    margin:5% 0 200px 0;
+}
+
+.newInput {
+	height: 30px;
+	padding-left:2%;
+	font-size: 1.4em;
+	border: none;
+	border-bottom: 1px solid black;
+	border-radius:0;
+	font-family: Verdana;
+	box-shadow:none !important;
+}
+
+input[type="checkbox"]:empty {
+  display: none;
+}
+
+/* label style */
+input[type="checkbox"]:empty ~ label {
+  border: none !important;
+  width: 100%;
+  position: relative;
+  line-height: 2.5em;
+  padding-left: 3.5em;
+  color: #888;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+ input[type="checkbox"]:checked ~ label {
+  color: #666;
+}
+
+/* check style */
+input[type="checkbox"] ~ label:before {
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  content: '\2714';
+  text-indent: .9em;
+  width: 2.5em;
+  height:2.5em;
+  background: #D1D3D4;
+  border-radius:50%;
+}
+
+input[type="checkbox"]:empty ~ label:before {
+  color: #C2C2C2;
+}
+
+input[type="checkbox"]:checked ~ label:before {
+  color: #fff;
+  background-color: #5cb85c;
+}
+
+@media (max-width: 320px) {
+	.newInput,
+	.newButton {
+		display:block;
+		width:100% !important;
+		margin-bottom:5px;
+	}
+}
