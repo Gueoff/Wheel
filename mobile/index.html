@@ -7,18 +7,21 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         -->
-    <meta charset="utf-8">
+        <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/game.css">
-    <link rel="stylesheet" type="text/css" href="css/option.css">
-    <script type="text/javascript" src="js/angular.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/game.css">
+        <link rel="stylesheet" type="text/css" href="css/option.css">
+        <script type="text/javascript" src="js/angular.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <title>Wheel</title>
     </head>
     <body ng-controller="GameController">
 
         <!-- Game page -->
-        <div id="game" class="panel container">
+        <div id="game" class="panel left container">
             <!-- Wheel -->
             <div id="wheel" ng-click="turn()">
                 <!-- Arrow -->
@@ -38,28 +41,39 @@
         </div>
 
         <!-- Option page -->
-        <div id="option" class="panel right container">
-            <table class="table table-hover">
-                <tbody ng-repeat="msg in messages| orderBy:['active','content']">
-                    <tr ng-class="msg.active ? '' : ''">
-                        <td class="col-md-12">
-                            <input type="checkbox" name="checkbox" id="{{msg.id}}" ng-checked="{{msg.active}}" ng-click="updateMessage(msg)"/>
-                            <label for="{{msg.id}}">{{msg.content}}</label>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div id="option" class="panel container">
+            <div id="accordion" role="tablist">
+                <!-- Player form -->
+                <div class="card">
+                    <div class="card-header" role="tab" data-toggle="collapse" href="#players-form" role="button" aria-expanded="true" aria-controls="players-form">
+                        <div class="card-title">Joueurs</div>
+                    </div>
 
-            <form ng-submit="newMessage(messageContent)" class="new form-inline">
-                <input type="text" class="newInput col-md-10 col-sm-10 col-xs-9" ng-model="messageContent" placeholder="Nouveau message" />
-                <button class="newButton btn btn-danger col-md-2 col-sm-2 col-xs-3">Valider</button>
-            </form>
+                    <div id="players-form" class="collapse show" role="tabpanel" data-parent="#accordion">
+                        <div class="card-body">
+                            <div ng-include="'players.html'"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rules form -->
+                <div class="card">
+                    <div class="card-header collapsed" role="tab" data-toggle="collapse" href="#rules-form" role="button" aria-expanded="false" aria-controls="rules-form">
+                        <div class="card-title">Règles</div>
+                    </div>
+                    <div id="rules-form" class="collapse" role="tabpanel" data-parent="#accordion">
+                        <div class="card-body">
+                          <div ng-include="'rules.html'"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Navigation menu -->
-        <nav class="nav">
-            <button id="btnGame" class="btn-game col-md-6 col-xs-6 active" ng-click="change('game')"></button>
-            <button id="btnOption" class="btn-option col-md-6 col-xs-6" ng-click="change('option')"></button>
+        <nav class="navbar fixed-bottom">
+            <button id="btnGame" class="btn-game col" ng-click="change('game')"></button>
+            <button id="btnOption" class="btn-option col active" ng-click="change('option')"></button>
         </nav>
 
         <script type="text/javascript" src="js/app.js"></script>

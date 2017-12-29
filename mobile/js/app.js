@@ -8,10 +8,9 @@ const config = {
 };
 
 angular.module('app', []).controller('GameController',['$scope', '$http', function ($scope, $http){
-  $scope.players = ['geof','bob', 'georgio', 'mec', 'ducon'];
+  $scope.players = [];
   $scope.stylePlayers = [];
   $scope.styleDrawbar = [];
-  $scope.colors = ['rgb(49, 140, 231)','rgb(237, 0, 0)','rgb(52, 201, 36)','rgb(252, 220, 18)','rgb(237, 127, 16)','rgb(136, 77, 167)','rgb(255,255,255)'];
   $scope.hasard = 0;
   $scope.rotation = '';
   $scope.messages = [];
@@ -40,9 +39,8 @@ angular.module('app', []).controller('GameController',['$scope', '$http', functi
 
   // Add a message to the list.
   $scope.newMessage = function (newMessage){
-    for(var i=0; i<$scope.messages.length; i++){
+    for(var i=0; i < $scope.messages.length; i++){
       if($scope.format($scope.messages[i].content) == $scope.format(newMessage)){
-        $scope.messageContent = null;
         return null;
       }
     }
@@ -51,7 +49,6 @@ angular.module('app', []).controller('GameController',['$scope', '$http', functi
     var message = {name: 'joueur', content: newMessage, active:true, valid:false, date:dateFormat};
     var messageJson = angular.toJson(message);
     $scope.messages.push(message);
-    $scope.messageContent = null;
 
     $http.post( config.url+"create", messageJson)
       .success(function (data){
@@ -80,7 +77,7 @@ angular.module('app', []).controller('GameController',['$scope', '$http', functi
   };
 
   // Turn the wheel.
-  $scope.turn = function (){
+  $scope.turn = function () {
     // Change wheel style.
     $scope.hasard += Math.random()*3000;
     var duration = 1 + (Math.random()*4);
@@ -97,12 +94,16 @@ angular.module('app', []).controller('GameController',['$scope', '$http', functi
     $scope.message = newMessage;
   };
 
-  // Initialize player style.
+  // Initialize player style on wheel.
   $scope.changePlayerStyle = function () {
-  var style = {};
-  var rotation = 0;
-  var interval = 360/$scope.players.length;
-    for(var i=0; i < $scope.players.length; i++){
+    $scope.stylePlayers = [];
+    $scope.styleDrawbar = [];
+    var style = {};
+    var rotation = 0;
+    var interval = 360/$scope.players.length;
+
+    // Add style for each player.
+    for(var i=0; i < $scope.players.length; i++) {
       rotation = interval*i;
       style = {
           '-webkit-transform': 'rotate(' + rotation + 'deg) translate(0px, -170px)',
@@ -122,10 +123,17 @@ angular.module('app', []).controller('GameController',['$scope', '$http', functi
 
 	// Add a player to the game.
   $scope.addPlayer = function (player){
-    //Ajout du joueur
-    $scope.choices.push(player);
+    $scope.players.push(player);
+    $scope.changePlayerStyle();
   };
 
+  // Remove a player to the game.
+  $scope.removePlayer = function (index){
+    $scope.players.splice(index, 1);
+    $scope.changePlayerStyle();
+  };
+
+  // Initialize the game.
 	$scope.initialize = function () {
     $scope.listMessages();
     $scope.changePlayerStyle();

@@ -1,19 +1,55 @@
 ﻿@charset "utf-8";
 /* CSS Document */
 
+.card {
+  border: none;
+}
+
+.card  > .card-header {
+  padding-right: 30px;
+  position: relative;
+  cursor: pointer;
+  color: #666;
+  font-size: 1.5em;
+}
+
+.card > .card-header:after {
+  content: '-';
+  position: absolute;
+  font-size: 20px;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.card > .card-header.collapsed:after {
+  content: '+';
+}
+
+.card > .card-header.collapsed {
+  color: #888;
+}
+
+
 form {
-    margin:5% 0 200px 0;
+  margin:40px 0;
 }
 
 .newInput {
-	height: 30px;
-	padding-left:2%;
-	font-size: 1.4em;
-	border: none;
+	font-size:     1.4em;
+	margin-bottom: 5px;
+	padding-right: 5px;
+	border:        none;
 	border-bottom: 1px solid black;
-	border-radius:0;
-	font-family: Verdana;
-	box-shadow:none !important;
+	font-family:   Verdana;
+
+}
+
+.remove {
+  border:        none;
+  cursor:        pointer;
+  padding-right: 20px;
+  color:         rgb(211,72,54);
 }
 
 input[type="checkbox"]:empty {
@@ -35,7 +71,8 @@ input[type="checkbox"]:empty ~ label {
           user-select: none;
 }
 
- input[type="checkbox"]:checked ~ label {
+ input[type="checkbox"]:checked ~ label,
+ input[type="button"] ~label {
   color: #666;
 }
 
