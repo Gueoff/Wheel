@@ -8,7 +8,7 @@ const config = {
 };
 
 angular.module('app', []).controller('GameController',['$scope', '$http', function ($scope, $http){
-  $scope.players = [];
+  $scope.players = ['a','b','c'];
   $scope.stylePlayers = [];
   $scope.styleDrawbar = [];
   $scope.hasard = 0;
@@ -106,9 +106,9 @@ angular.module('app', []).controller('GameController',['$scope', '$http', functi
     for(var i=0; i < $scope.players.length; i++) {
       rotation = interval*i;
       style = {
-          '-webkit-transform': 'rotate(' + rotation + 'deg) translate(0px, -170px)',
-          '-o-transform': 'rotate(' + rotation + 'deg) translate(0px, -170px)',
-          'transform': 'rotate(' + rotation + 'deg) translate(0px, -170px)'
+          '-webkit-transform': 'rotate(' + rotation + 'deg) translate(0px, -110px)',
+          '-o-transform': 'rotate(' + rotation + 'deg) translate(0px, -110px)',
+          'transform': 'rotate(' + rotation + 'deg) translate(0px, -110px)'
       };
       $scope.stylePlayers.push(style);
       rotation += interval/2;

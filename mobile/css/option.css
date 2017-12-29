@@ -30,6 +30,15 @@
   color: #888;
 }
 
+.card-body {
+  background-color: rgba(0,0,0,.03);
+}
+
+.table tr:last-child td,
+.table tr:first-child td {
+  border-top: none;
+}
+
 
 form {
   margin:40px 0;
@@ -42,7 +51,7 @@ form {
 	border:        none;
 	border-bottom: 1px solid black;
 	font-family:   Verdana;
-
+  background:    transparent;
 }
 
 .remove {
@@ -50,6 +59,7 @@ form {
   cursor:        pointer;
   padding-right: 20px;
   color:         rgb(211,72,54);
+  background:    transparent;
 }
 
 input[type="checkbox"]:empty {
@@ -98,13 +108,4 @@ input[type="checkbox"]:empty ~ label:before {
 input[type="checkbox"]:checked ~ label:before {
   color: #fff;
   background-color: #5cb85c;
-}
-
-@media (max-width: 320px) {
-	.newInput,
-	.newButton {
-		display:block;
-		width:100% !important;
-		margin-bottom:5px;
-	}
 }

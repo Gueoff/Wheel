@@ -21,7 +21,7 @@
     <body ng-controller="GameController">
 
         <!-- Game page -->
-        <div id="game" class="panel left container">
+        <div id="game" class="panel left">
             <!-- Wheel -->
             <div id="wheel" ng-click="turn()">
                 <!-- Arrow -->
@@ -35,27 +35,25 @@
             </div>
 
             <!-- Message -->
-            <div id="message" class="col-md-12">
+            <div id="message" class="col-xs-12">
                 {{message.content}}
             </div>
         </div>
 
         <!-- Option page -->
-        <div id="option" class="panel container">
+        <div id="option" class="panel">
             <div id="accordion" role="tablist">
                 <!-- Player form -->
                 <div class="card">
                     <div class="card-header" role="tab" data-toggle="collapse" href="#players-form" role="button" aria-expanded="true" aria-controls="players-form">
                         <div class="card-title">Joueurs</div>
                     </div>
-
                     <div id="players-form" class="collapse show" role="tabpanel" data-parent="#accordion">
                         <div class="card-body">
                             <div ng-include="'players.html'"></div>
                         </div>
                     </div>
                 </div>
-
                 <!-- Rules form -->
                 <div class="card">
                     <div class="card-header collapsed" role="tab" data-toggle="collapse" href="#rules-form" role="button" aria-expanded="false" aria-controls="rules-form">
